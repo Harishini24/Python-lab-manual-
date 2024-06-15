@@ -1,0 +1,74 @@
+Background: Rose manages a personal library with a diverse collection of books. To streamline her library management, she needs a program that can categorize books based on their genres, making it easier to find and organize her collection. Problem Statement: Develop a Python program that reads a series of book titles and their corresponding genres from user input, categorizes the books by genre using a dictionary, and outputs the list of books under each genre in a formatted manner. Input Format: The input will be provided in lines where each line contains a book title and its genre separated by a comma. Input terminates with a blank line. Output Format: For each genre, output the genre name followed by a colon and a list of book titles in that genre, separated by commas.
+d=dict()
+try:
+    while True:
+        a=input()
+    #a=a.split(',')
+        a=a.split(',')
+        if a[1] not in d:
+            d[a[1]]=[a[0]]
+        else:
+            d[a[1]].append(a[0])
+        
+except EOFError:
+    for i in d:
+        print(i.strip(),':',sep='',end=' ')
+        j=-1
+        for j in range(0,len(d[i])-1):
+            print(d[i][j],end=', ')
+        print(d[i][j+1])
+    #print()'''
+
+Dr. John Wesley maintains a spreadsheet with student records for academic evaluation. The spreadsheet contains various data fields including student IDs, marks, class names, and student names. The goal is to develop a system that can calculate the average marks of all students listed in the spreadsheet. Problem Statement: Create a Python-based solution that can parse input data representing a list of students with their respective marks and other details, and compute the average marks. The input may present these details in any order, so the solution must be adaptable to this variability.
+n=int(input())
+s=input().split()
+m=0
+#print(s)
+for i in range(0,4):
+    if s[i]=='MARKS':
+        break
+#print(i)
+for j in range(0,n):
+    s1=input().split()
+    #print(s1)
+    m=m+float(s1[i])
+if n==0:
+    print('0.00')
+else:
+    c=m/n
+    print("%.2f"%c)
+
+Given an integer n, print true if it is a power of three. Otherwise, print false. An integer n is a power of three, if there exists an integer x such that n == 3x.
+#power of three
+import math
+n=int(input())
+i=0
+while True:
+    if 3**i==n:
+        print("True")
+        break
+    if 3**i>n:
+        print("False")
+        break
+    i=i+1
+
+Raghu owns a shoe shop with a varying inventory of shoe sizes. The shop caters to multiple customers who have specific size requirements and are willing to pay a designated amount for their desired shoe size. Raghu needs an efficient system to manage his inventory and calculate the total revenue generated from sales based on customer demands. Problem Statement: Develop a Python program that manages shoe inventory and processes sales transactions to determine the total revenue generated. The program should handle inputs of shoe sizes available in the shop, track the number of each size, and match these with customer purchase requests. Each transaction should only proceed if the desired shoe size is in stock, and the inventory should update accordingly after each sale.
+n=int(input())
+s=input().split()
+s=[int(i) for i in s]
+r=int(input())
+tc=0
+#l=np.zeroes((r,2))
+l=[]
+for i in range(0,r):
+    a=input().split()
+    a=[int(j) for j in a]
+    l.append(a)
+
+for i in range(0,r):
+    for j in range(0,n):
+        if l[i][0]==s[j]:
+            s[j]=0
+            tc=tc+l[i][1]
+            break
+print(tc)
